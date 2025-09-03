@@ -12,10 +12,14 @@ function agregarAmigo() {
 }
 
 function agregarElemento(amigo) {
+    document.getElementById("listaAmigos").innerHTML = "";
     amigos.push(amigo);
-    let nuevoLi = document.createElement("li");
-    nuevoLi.textContent = amigo;
-    document.getElementById("listaAmigos").appendChild(nuevoLi);
+    for (let index = 0; index < amigos.length; index++) {
+        const element = amigos[index];
+        let nuevoLi = document.createElement("li");
+        nuevoLi.textContent = element;
+        document.getElementById("listaAmigos").appendChild(nuevoLi);
+    }
 }
 
 function sortearAmigo() {
@@ -27,7 +31,5 @@ function sortearAmigo() {
         document.getElementById("resultado").appendChild(nuevoLi);
         document.getElementById("listaAmigos").innerHTML = "";
         amigos = [];
-    } else {
-        alert("No hay nombres para sortear")
-    }
+    } 
 }
